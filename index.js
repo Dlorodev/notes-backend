@@ -1,12 +1,13 @@
 const http = require('http');
 const express = require('express');
 const cors = require('cors');
-const whiteList = ['http://localhost:5173']
+//const whiteList = ['http://localhost:5173']
 
 
 const app = express();
 app.use(express.json());
-app.use(cors({ origin: whiteList }));
+app.use(cors());
+app.use(express.static('dist'));
 
 let notes = [
     {
@@ -76,7 +77,6 @@ app.delete('/api/notes/:id', (request, response) => {
 
 const generateId = () => {
     const maxId = notes.length > 0 ? Math.max(...notes.map(n => n.id)) : 0
-    const note = request.body
     return maxId + 1
 }
 
