@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 const mongoose = require('mongoose')
 
 if (process.argv.length < 3) {
@@ -31,9 +33,9 @@ note.save().then(result => {
     mongoose.connection.close()
 })*/
 
-Note.find({/*important: false*/}).then(result => {
-  result.forEach(note => {
-    console.log(note)
-  })
-  mongoose.connection.close()
+Note.find({/*important: false*/ }).then(result => {
+    result.forEach(note => {
+        console.log(note)
+    })
+    mongoose.connection.close()
 })
